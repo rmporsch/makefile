@@ -1,0 +1,41 @@
+---
+title: "Sample Report"
+subtitle: "A report using Makefiles"
+author: Robert M. Porsch
+output:
+  html_document:
+    fig_width: 4
+    fig_height: 3
+    fig_caption: true
+---
+
+# The Data
+
+Daily readings of the following air quality values for May 1, 1973 (a Tuesday) to September 30, 1973 in New York City.
+
+# Descriptive Stats
+
+
+## Histogram
+
+As you can see in the histogram shows some form of distribution. 
+This text is actually here to give some form of contextual information.
+However, since this analysis is pretty trivial I will just write some bullshit here.
+
+![](histogram.png ){ width=40% height=40% }
+
+
+# Temperature Over Time
+
+Similar, one can see here the temperature change across the two analysed years.
+Nothing special here to report.
+
+```{r, results='asis', message=F, echo=F, fig.align='left', fig.cap="Temperature over Time"}
+dat <- read.csv("formated_data.csv")
+library(tidyverse)
+ggplot(dat, aes(x=X, y=TempC)) +
+  geom_line() +
+  xlab("Days") +
+  ylab("Temperature (in C)")
+```
+
